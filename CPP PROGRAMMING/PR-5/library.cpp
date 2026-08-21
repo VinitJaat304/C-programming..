@@ -222,7 +222,8 @@ public:
 
     void displayDetails()
     {
-        cout << endl << "=======MAGAZINE======";
+        cout << endl
+             << "=======MAGAZINE======";
         cout << "Title       : " << getTitle() << endl;
         cout << "Publisher   : " << getAuthor() << endl;
         cout << "Issue No.   : " << issueNumber << endl;
@@ -243,11 +244,13 @@ void displayAll(LibraryItem *items[], int count)
         return;
     }
 
-    cout << endl << "========== LIBRARY ==========";
+    cout << endl
+         << "========== LIBRARY ==========";
 
     for (int i = 0; i < count; i++)
     {
-        cout << endl << "Item ID: " << i + 1;
+        cout << endl
+             << "Item ID: " << i + 1;
         items[i]->displayDetails();
     }
 }
@@ -255,9 +258,10 @@ void displayAll(LibraryItem *items[], int count)
 void searchItem(LibraryItem *items[], int count)
 {
     string title;
-    bool found = false;
+    int found = 0;
 
-    cout << endl << "Enter title: ";
+    cout << endl
+         << "Enter title: ";
     cin >> title;
 
     for (int i = 0; i < count; i++)
@@ -265,11 +269,11 @@ void searchItem(LibraryItem *items[], int count)
         if (items[i]->getTitle() == title)
         {
             items[i]->displayDetails();
-            found = true;
+            found = 1;
         }
     }
 
-    if (!found)
+    if (found == 0)
     {
         cout << "\nItem not found.\n";
     }
